@@ -2,13 +2,7 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 resources:
-- pingaccess.yaml
-- pingdataconsole.yaml
-- pingdatagovernance.yaml
-- pingdatagovernancepap.yaml
-- pingdirectory.yaml
-- pingfederate.yaml
-- bxfinanceapp.yaml
+- ../k8s
 #- secret.yaml
 
 generatorOptions:
@@ -16,5 +10,10 @@ generatorOptions:
 
 configMapGenerator:
 - name: ${REF}-global-env-vars
+  behavior: replace
   envs:
     - shared-vars
+
+images:
+- name: gcr.io/ping-gte/bxfinanceapp
+  newName: gcr.io/ping-gte/bxfinanceapp-{REF}

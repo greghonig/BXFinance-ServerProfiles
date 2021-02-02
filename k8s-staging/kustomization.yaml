@@ -9,7 +9,7 @@ generatorOptions:
   disableNameSuffixHash: true
 
 configMapGenerator:
-- name: shared-vars
+- name: ${REF}-global-env-vars
   behavior: replace
   envs:
     - shared-vars

@@ -43,10 +43,10 @@ spec:
       containers:
       - envFrom:
         - configMapRef:
-            name: shared-vars
-        - secretRef:
-            name: server-profile-url
-            optional: false
+            name: ${REF}-global-env-vars
+        # - secretRef:
+        #     name: server-profile-url
+        #     optional: false
         - secretRef:
             name: devops-secret
             optional: true
@@ -63,6 +63,9 @@ spec:
           initialDelaySeconds: 100
           periodSeconds: 1
         name: pingfederate
+        env:
+        - name: PF_PROFILE_SHA
+          value: ${pingfederateSha}
         ports:
         - containerPort: 9999
         - containerPort: 9031
