@@ -1,8 +1,8 @@
-ldap.url=ldap://pingdirectory:389
-ldap.username=cn=pingfederate
+ldap.url=ldap://${PD_ENGINE_PRIVATE_HOSTNAME}:${PD_ENGINE_PRIVATE_PORT_LDAP}
+ldap.username=cn=${PF_ENGINE_PRIVATE_HOSTNAME}
 ldap.password=${PF_USER_PWD}
 ldap.connectTimeout=10000
-ldap.readTimeout=3000
+ldap.readTimeout=${PA_ENGINE_PRIVATE_PORT_HTTPS}
 search.base=${USER_BASE_DN}
 search.filter=(uid={0})
 role.admin=
