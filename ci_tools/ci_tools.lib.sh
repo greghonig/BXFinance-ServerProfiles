@@ -9,20 +9,32 @@ case "${REF}" in
   qa )
     RELEASE=${RELEASE:=qa} 
     K8S_NAMESPACE=${K8S_NAMESPACE:=bxfinance-qa}
+    ENV="-qa"
+    PING_IDENTITY_DEVOPS_DNS_ZONE=bxfinance-qa.ping-devops.com
+    REF_PREFIX="${REF}-"
     ;;
   staging )
     RELEASE=${RELEASE:=staging} 
     K8S_NAMESPACE=${K8S_NAMESPACE:=bxfinance-staging}
+    ENV="-staging"
+    PING_IDENTITY_DEVOPS_DNS_ZONE=bxfinance-staging.ping-devops.com
+    REF_PREFIX="${REF}-"
     ;;
   master ) 
     RELEASE=${RELEASE:=prod}
     K8S_NAMESPACE=${K8S_NAMESPACE:=bxfinance} 
+    ENV=""
+    PING_IDENTITY_DEVOPS_DNS_ZONE=demo.bxfinance.org
     ;;
   * )
     RELEASE="${REF}"
     K8S_NAMESPACE=${K8S_NAMESPACE:=bxfinance-dev} 
+    ENV="-feature"
+    PING_IDENTITY_DEVOPS_DNS_ZONE="bxfinance-${REF}.ping-devops.com"
+    REF_PREFIX="${REF}-"
     ;;
 esac
+
 
 kubectl config set-context --current --namespace="${K8S_NAMESPACE}"
 

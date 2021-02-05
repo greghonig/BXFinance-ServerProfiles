@@ -15,11 +15,14 @@
 # ---
 apiVersion: v1
 data:
-  K8S_STATEFUL_SET_NAME: pingdirectory
-  K8S_STATEFUL_SET_SERVICE_NAME: pingdirectory-cluster
+  K8S_STATEFUL_SET_NAME: ${REF_PREFIX}pingdirectory
+  K8S_STATEFUL_SET_SERVICE_NAME: ${REF_PREFIX}pingdirectory-cluster
   ORCHESTRATION_TYPE: KUBERNETES
   SERVER_PROFILE_URL: https://github.com/Technical-Enablement-PingIdentity/BXFinance-ServerProfiles
   SERVER_PROFILE_PATH: profiles/pingdirectory
+  ROOT_USER_PASSWORD_FILE: /opt/staging/pwd
+  ADMIN_USER_PASSWORD_FILE: /opt/staging/pwd
+  ENCRYPTION_PASSWORD_FILE: /opt/staging/pwd
   MAX_HEAP_SIZE: 768m
 kind: ConfigMap
 metadata:
@@ -36,7 +39,6 @@ metadata:
     role: pingdirectory
   name: pingdirectory
 spec:
-  clusterIP: None
   ports:
   - name: ldaps
     port: 636
@@ -93,7 +95,7 @@ spec:
       containers:
       - envFrom:
         - configMapRef:
-            name: ${REF}-global-env-vars
+            name: global-env-vars
         # - secretRef:
         #     name: server-profile-url
         #     optional: true

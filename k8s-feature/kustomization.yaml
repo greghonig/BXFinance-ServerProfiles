@@ -9,11 +9,34 @@ generatorOptions:
   disableNameSuffixHash: true
 
 configMapGenerator:
-- name: ${REF}-global-env-vars
+- name: global-env-vars
   behavior: replace
   envs:
     - shared-vars
 
 images:
 - name: gcr.io/ping-gte/bxfinanceapp
-  newName: gcr.io/ping-gte/bxfinanceapp-{REF}
+  newName: gcr.io/ping-gte/bxfinanceapp-dev
+
+namespace: bxfinance-dev
+
+namePrefix: ${REF_PREFIX}
+
+commonLabels:
+  refs: ${REF}
+
+patches:
+- target:
+    kind: Deployment
+    name: bxfinanceapp
+  patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/stdin
+      value: true
+- target:
+    kind: Deployment
+    name: bxfinanceapp
+  patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/tty
+      value: true

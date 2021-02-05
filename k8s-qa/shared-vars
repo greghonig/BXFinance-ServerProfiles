@@ -44,9 +44,19 @@ PF_ENGINE_PUBLIC_HOSTNAME=bxfinance-qa.ping-devops.com
 PF_DELEGATOR_CLIENTID=Delegator
 PD_ENGINE_PUBLIC_HOSTNAME=bxfinance-qa.ping-devops.com
 PD_ENGINE_PUBLIC_PORT=443
+PF_ENGINE_PRIVATE_HOSTNAME=pingfederate
+PD_ENGINE_PRIVATE_HOSTNAME=pingdirectory
+PA_ENGINE_PRIVATE_HOSTNAME=pingaccess
+PDG_ENGINE_PRIVATE_HOSTNAME=pingdatagovernance
+PDGP_ENGINE_PRIVATE_HOSTNAME=pingdatagovernancepap
+PF_ENGINE_PRIVATE_HTTPS_PORT=9031
+PD_ENGINE_PRIVATE_HOSTNAME=pingdirectory
+PA_ENGINE_PRIVATE_HOSTNAME=pingaccess
+PDG_ENGINE_PRIVATE_HOSTNAME=pingdatagovernance
+PDGP_ENGINE_PRIVATE_HOSTNAME=pingdatagovernancepap
 #
-# necessary pap variable
-PING_EXTERNAL_BASE_URL=pingdatagovernancepap:9443
+# necessary pap variable to avoid CORS. 
+PING_EXTERNAL_BASE_URL=pingdatagovernancepap-bxfinance-qa.ping-devops.com:443
 #
 # Base Hostname of the PingFed service being used for Delegated Admin
 PF_BASE_HOST=bxfinance-qa.ping-devops.com

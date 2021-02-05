@@ -1,6 +1,6 @@
 apiVersion: v1
 data:
-  SERVER_PROFILE_PATH: pingfederate
+  SERVER_PROFILE_PATH: profiles/pingfederate
 kind: ConfigMap
 metadata:
   labels:
@@ -42,7 +42,7 @@ spec:
       containers:
       - envFrom:
         - configMapRef:
-            name: ${REF}-global-env-vars
+            name: global-env-vars
         # - secretRef:
         #     name: server-profile-url
         #     optional: false
@@ -93,7 +93,7 @@ spec:
       initContainers:
       - name: init
         image: curlimages/curl:latest
-        command: ['sh', '-c', 'until curl --connect-timeout 1 --silent -k https://pingdirectory:443/directory/v1 ; do echo waiting for pingdirectory ; sleep 3 ; done']
+        command: ['sh', '-c', 'until curl --connect-timeout 1 --silent -k https://${REF_PREFIX}pingdirectory:443/directory/v1 ; do echo waiting for pingdirectory ; sleep 3 ; done']
 
 
 # ---
