@@ -4,6 +4,6 @@
     <item name="max-connections-per-route">100</item>
     <item name="connection-timeout">60000</item>
     <item name="request-timeout">120000</item>
-    <item name="connection-idle-timeout">30000</item>
+    <item name="connection-idle-timeout">${PA_ENGINE_PRIVATE_PORT_HTTPS}0</item>
     <item name="keepalive-timeout">1000</item>
 </config>

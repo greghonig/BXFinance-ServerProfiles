@@ -13,10 +13,10 @@ dsconfig create-scim-resource-type \
     --set include-base-dn:ou=People,${USER_BASE_DN} 
 
 dsconfig create-key-manager-provider \
-    --provider-name pingdirectory  \
+    --provider-name ${PD_ENGINE_PRIVATE_HOSTNAME}  \
     --type file-based  \
     --set enabled:true  \
-    --set key-store-file:config/pingdirectory.p12  \
+    --set key-store-file:config/${PD_ENGINE_PRIVATE_HOSTNAME}.p12  \
     --set key-store-type:PKCS12  \
     --set key-store-pin:AAAfJZcdrX7mcKkdPst796z6mxB2SITl4KI= 
 
@@ -88,7 +88,7 @@ dsconfig create-external-server \
 dsconfig create-external-server \
     --server-name PingFederate  \
     --type http  \
-    --set base-url:https://pingfederate:9031  \
+    --set base-url:https://${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}  \
     --set hostname-verification-method:allow-all  \
     --set key-manager-provider:Null  \
     --set 'trust-manager-provider:Blind Trust' 
@@ -100,10 +100,10 @@ dsconfig set-access-control-handler-prop \
     --remove 'global-aci:(targetattr="userPassword || authPassword")(version 3.0; acl "Prevent clients from retrieving passwords from the server"; deny (read,search,compare) userdn="ldap:///anyone";)'  \
     --add 'global-aci:(extop="1.3.6.1.4.1.30221.2.6.17")(version 3.0;acl "Authenticated access to the multi-update extended request for the Delegated Admin API"; allow (read) userdn="ldap:///all";)'  \
     --add 'global-aci:(extop="1.3.6.1.4.1.30221.2.6.62")(version 3.0; acl "Authenticated access to the generate-password extended request for the Delegated Admin API"; allow (read) userdn="ldap:///all";)'  \
-    --add 'global-aci:(targetattr="*")(version 3.0; acl "Grant full access for the admin user"; allow (all) userdn="ldap:///cn=pingfederate,cn=Root DNs,cn=config";)'  \
-    --add 'global-aci:(targetattr="userPassword || authPassword")(version 3.0; acl "Grant password access for the admin user"; allow (all) userdn="ldap:///cn=pingfederate,cn=Root DNs,cn=config";)'  \
-    --add 'global-aci:(targetcontrol="1.2.840.113556.1.4.319")(version 3.0; acl "Allow paging for pingfederate"; allow (read) userdn="ldap:///cn=pingfederate,cn=Root DNs,cn=config";)'  \
-    --add 'global-aci:(targetcontrol="1.2.840.113556.1.4.473")(version 3.0; acl "Allow Server Sort for pingfederate"; allow (read) userdn="ldap:///cn=pingfederate,cn=Root DNs,cn=config";)'  \
+    --add 'global-aci:(targetattr="*")(version 3.0; acl "Grant full access for the admin user"; allow (all) userdn="ldap:///cn=${PF_ENGINE_PRIVATE_HOSTNAME},cn=Root DNs,cn=config";)'  \
+    --add 'global-aci:(targetattr="userPassword || authPassword")(version 3.0; acl "Grant password access for the admin user"; allow (all) userdn="ldap:///cn=${PF_ENGINE_PRIVATE_HOSTNAME},cn=Root DNs,cn=config";)'  \
+    --add 'global-aci:(targetcontrol="1.2.840.113556.1.4.319")(version 3.0; acl "Allow paging for ${PF_ENGINE_PRIVATE_HOSTNAME}"; allow (read) userdn="ldap:///cn=${PF_ENGINE_PRIVATE_HOSTNAME},cn=Root DNs,cn=config";)'  \
+    --add 'global-aci:(targetcontrol="1.2.840.113556.1.4.473")(version 3.0; acl "Allow Server Sort for ${PF_ENGINE_PRIVATE_HOSTNAME}"; allow (read) userdn="ldap:///cn=${PF_ENGINE_PRIVATE_HOSTNAME},cn=Root DNs,cn=config";)'  \
     --add 'global-aci:(targetcontrol="1.3.6.1.1.13.2")(version 3.0; acl "Anonymous access to the post-read request control as described in RFC 4527"; allow (read) userdn="ldap:///anyone";)'  \
     --add 'global-aci:(targetcontrol="1.3.6.1.4.1.30221.2.5.40")(version 3.0;acl "Authenticated access to the password validation details request control for the Delegated Admin API"; allow (read) userdn="ldap:///all";)'  \
     --add 'global-aci:(targetcontrol="1.3.6.1.4.1.4203.1.10.2")(version 3.0;acl "Authenticated access to the no-op request control for the Delegated Admin API"; allow (read) userdn="ldap:///all";)' 
@@ -417,10 +417,10 @@ dsconfig create-root-dn-user \
     --set privilege:unindexed-search 
 
 dsconfig create-root-dn-user \
-    --user-name pingfederate  \
+    --user-name ${PF_ENGINE_PRIVATE_HOSTNAME}  \
     --set alternate-bind-dn:cn=fed  \
     --set alternate-bind-dn:cn=pf  \
-    --set alternate-bind-dn:cn=pingfederate  \
+    --set alternate-bind-dn:cn=${PF_ENGINE_PRIVATE_HOSTNAME}  \
     --set password:{PBKDF2}ABCs4HY7Wk+HWUvY+kRV/PCiJxDOjlYdEyqyLeuKfjtvS7peEHpD2Bd3g6hEfVDcwL5zyw==  \
     --set inherit-default-root-privileges:false  \
     --set privilege:config-read  \
@@ -456,7 +456,7 @@ dsconfig create-connection-handler \
     --set http-servlet-extension:SCIM2  \
     --set web-application-extension:Console  \
     --set 'http-operation-log-publisher:HTTP Detailed Access'  \
-    --set key-manager-provider:pingdirectory  \
+    --set key-manager-provider:${PD_ENGINE_PRIVATE_HOSTNAME}  \
     --set trust-manager-provider:JKS  \
     --set correlation-id-request-header:Correlation-Id  \
     --set correlation-id-request-header:X-Correlation-Id  \
@@ -475,8 +475,8 @@ dsconfig set-consent-service-prop \
     --set base-dn:ou=consents,${USER_BASE_DN}  \
     --set bind-dn:cn=dmanager  \
     --set 'consent-record-identity-mapper:User ID Exact Match'  \
-    --set unprivileged-consent-scope:urn:pingdirectory:consent  \
-    --set privileged-consent-scope:urn:pingdirectory:consent_admin 
+    --set unprivileged-consent-scope:urn:${PD_ENGINE_PRIVATE_HOSTNAME}:consent  \
+    --set privileged-consent-scope:urn:${PD_ENGINE_PRIVATE_HOSTNAME}:consent_admin 
 
 dsconfig create-plugin \
     --plugin-name ExpiredSessionAutoPurge  \
