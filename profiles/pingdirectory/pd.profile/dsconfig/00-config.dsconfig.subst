@@ -16,7 +16,7 @@ dsconfig create-key-manager-provider \
     --provider-name ${PD_ENGINE_PRIVATE_HOSTNAME}  \
     --type file-based  \
     --set enabled:true  \
-    --set key-store-file:config/keystore.p12  \
+    --set key-store-file:config/${PD_ENGINE_PRIVATE_HOSTNAME}.p12  \
     --set key-store-type:PKCS12  \
     --set key-store-pin:AAAfJZcdrX7mcKkdPst796z6mxB2SITl4KI= 
 
