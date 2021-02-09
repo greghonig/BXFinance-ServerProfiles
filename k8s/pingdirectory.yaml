@@ -41,11 +41,11 @@ metadata:
 spec:
   ports:
   - name: ldaps
-    port: 636
-    targetPort: 1636
+    port: 1636
+    targetPort: 636
   - name: ssl
-    port: 443
-    targetPort: 1443
+    port: 1443
+    targetPort: 443
   - name: consent
     port: 2443
     targetPort: 2443
