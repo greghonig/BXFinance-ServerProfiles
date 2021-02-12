@@ -10,8 +10,8 @@
 # ---------------------------------
 #
 # This property defines the port on which the PingFederate administrative
-# console and API runs. Default is ${PF_ADMIN_PRIVATE_PORT_HTTPS}.
-pf.admin.https.port=${PF_ADMIN_PRIVATE_PORT_HTTPS}
+# console and API runs. Default is 9999.
+pf.admin.https.port=9999
 
 #
 # This property defines the host name of this machine that will be used in
@@ -107,8 +107,8 @@ pf.http.port=-1
 #
 # This property defines the port on which PingFederate listens for
 # encrypted HTTPS (SSL/TLS) traffic.
-# Default is ${PF_ENGINE_PRIVATE_PORT_HTTPS}.
-pf.https.port=${PF_ENGINE_PRIVATE_PORT_HTTPS}
+# Default is 9031.
+pf.https.port=9031
 
 #
 # This property defines a secondary HTTPS port that can be used, for example,
@@ -153,7 +153,7 @@ pf.runtime.context.path=/
 #
 # This property defines the network path to the output location of log files.
 # Default is:
-#  <pf_install>/${PF_ENGINE_PRIVATE_HOSTNAME}/log
+#  <pf_install>/pingfederate/log
 #pf.log.dir=
 
 #

@@ -6,7 +6,7 @@
         <con:item name="phone">Used to access your phone number</con:item>
         <con:item name="openid">BXF Transaction initiated from App</con:item>
         <con:item name="profile">Used to access your profile</con:item>
-        <con:item name="urn:${PD_ENGINE_PRIVATE_HOSTNAME}:consent">Used to access your consent</con:item>
+        <con:item name="urn:pingdirectory:consent">Used to access your consent</con:item>
         <con:item name="bxfTransaction">Initiate BXF Transfer Money</con:item>
         <con:item name="email">Used to access your email address</con:item>
     </con:map>
