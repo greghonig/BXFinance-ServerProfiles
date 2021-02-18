@@ -32,7 +32,7 @@ spec:
       paths:
       - backend:
           serviceName: ${REF_PREFIX}pingdataconsole
-          servicePort: 9000
+          servicePort: 8443
         path: /
   - host: pingdatagovernancepap-bxfinance-${REF}.ping-devops.com
     http:
