@@ -5,8 +5,8 @@ metadata:
     kubernetes.io/ingress.class: nginx-public
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
   labels:
-    role: pingfederate
-  name: pingfederate
+    role: ${REF}
+  name: ${REF}-admin-consoles
 spec:
   rules:
   - host: pingfederate-bxfinance-${REF}.ping-devops.com
