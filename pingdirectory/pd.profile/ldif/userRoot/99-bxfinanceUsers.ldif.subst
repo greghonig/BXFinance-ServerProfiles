@@ -2,9 +2,9 @@
 # Included branch:  ${USER_BASE_DN}
 
 dn: ${USER_BASE_DN}
+dc: bxfinance.org
 objectClass: top
 objectClass: domain
-dc: bxfinance.xyz
 aci: (targetattr="userPassword")(version 3.0; acl "Allow users to update their own password"; allow (write) userdn="ldap:///self";)
 aci: (version 3.0; acl "PingFed Proxy Access"; allow(proxy) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
 aci: (targetattr!="userPassword")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
