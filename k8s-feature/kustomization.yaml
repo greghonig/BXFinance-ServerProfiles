@@ -4,6 +4,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
 - ../k8s
 - admin-ingress.yaml
+- namespace.yaml
 #- secret.yaml
 
 generatorOptions:
@@ -19,9 +20,9 @@ images:
 - name: gcr.io/ping-gte/bxfinanceapp
   newName: gcr.io/ping-gte/bxfinanceapp-dev
 
-namespace: bxfinance-dev
+namespace: ${K8S_NAMESPACE}
 
-namePrefix: ${REF_PREFIX}
+# namePrefix: ${REF_PREFIX}
 
 commonLabels:
   refs: ${REF}
