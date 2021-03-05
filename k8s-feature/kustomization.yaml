@@ -22,7 +22,6 @@ images:
 
 namespace: ${K8S_NAMESPACE}
 
-# namePrefix: ${REF_PREFIX}
 
 commonLabels:
   refs: ${REF}

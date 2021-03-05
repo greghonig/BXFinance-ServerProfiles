@@ -13,32 +13,32 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: ${REF_PREFIX}pingfederate
+          serviceName: pingfederate
           servicePort: 9999
         path: /pingfederate
       - backend:
-          serviceName: ${REF_PREFIX}pingfederate
+          serviceName: pingfederate
           servicePort: 9999
         path: /pf-admin-api
   - host: pingaccess-bxfinance-${REF}.ping-devops.com
     http:
       paths:
       - backend:
-          serviceName: ${REF_PREFIX}pingaccess
+          serviceName: pingaccess
           servicePort: 9000
         path: /
   - host: pingdataconsole-bxfinance-${REF}.ping-devops.com
     http:
       paths:
       - backend:
-          serviceName: ${REF_PREFIX}pingdataconsole
+          serviceName: pingdataconsole
           servicePort: 8443
         path: /
   - host: pingdatagovernancepap-bxfinance-${REF}.ping-devops.com
     http:
       paths:
       - backend:
-          serviceName: ${REF_PREFIX}pingdatagovernancepap
+          serviceName: pingdatagovernancepap
           servicePort: 9443
         path: /
   tls:

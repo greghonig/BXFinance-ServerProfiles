@@ -17,7 +17,6 @@ case "${REF}" in
 esac
 
 K8S_NAMESPACE="bxfinance${ENV}" 
-REF_PREFIX="${REF}-"
 PING_IDENTITY_DEVOPS_DNS_ZONE="bxfinance${ENV}.ping-devops.com"
 
 

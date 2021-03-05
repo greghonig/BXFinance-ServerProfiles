@@ -21,8 +21,8 @@ export pingdirectorySha pingfederateSha pingdatagovernanceSha pingdatagovernance
 export REF
 
 k8sFolder="k8s${ENV:+-feature}"
-kustomize build "k8sFolder" | envsubst
-kustomize build "k8sFolder" | envsubst | kubectl apply -n ${K8S_NAMESPACE} -f -
+kustomize build "${k8sFolder}" | envsubst
+kustomize build "${k8sFolder}" | envsubst | kubectl apply -n ${K8S_NAMESPACE} -f -
 
 
 #try to minimize extended crashloops
