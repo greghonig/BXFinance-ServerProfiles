@@ -54,9 +54,9 @@ spec:
             name: pingdatagovernancepap-environment-variables
         image: pingidentity/pingdatagovernancepap:2012-8.2.0.0
         name: pingdatagovernancepap
-        env:
-        - name: PDGP_PROFILE_SHA
-          value: ${pingdatagovernancepapSha}
+        # env:
+        # - name: PDGP_PROFILE_SHA
+        #   value: ${pingdatagovernancepapSha}
         ports:
         - containerPort: 9443
         resources:
