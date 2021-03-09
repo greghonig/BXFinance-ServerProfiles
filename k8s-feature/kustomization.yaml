@@ -7,6 +7,7 @@ resources:
 - namespace.yaml
 - devops-secret.yaml
 - gcr-pull-secret.yaml
+- licenses.yaml
 #- secret.yaml
 
 generatorOptions:
