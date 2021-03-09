@@ -5,6 +5,8 @@ resources:
 - ../k8s
 - admin-ingress.yaml
 - namespace.yaml
+- devops-secret.yaml
+- gcr-pull-secret.yaml
 #- secret.yaml
 
 generatorOptions:
