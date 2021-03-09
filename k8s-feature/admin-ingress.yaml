@@ -15,7 +15,7 @@ spec:
       - backend:
           serviceName: pingfederate
           servicePort: 9999
-        path: /pingfederate
+        path: /
       - backend:
           serviceName: pingfederate
           servicePort: 9999
