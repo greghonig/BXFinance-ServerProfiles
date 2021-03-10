@@ -105,9 +105,9 @@ spec:
         - configMapRef:
             name: pingdirectory-environment-variables
         image: pingidentity/pingdirectory:2012-8.2.0.0
-        # env:
-        # - name: PD_PROFILE_SHA
-        #   value: ${pingdirectorySha}
+        env:
+        - name: PD_PROFILE_SHA
+          value: ${pingdirectorySha}
         lifecycle:
           preStop:
             exec:

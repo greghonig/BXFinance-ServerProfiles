@@ -58,9 +58,9 @@ spec:
             name: pingaccess-environment-variables
         image: pingidentity/pingaccess:2012-6.2.0
         name: pingaccess
-        # env:
-        # - name: PA_PROFILE_SHA
-        #   value: ${pingaccessSha}
+        env:
+        - name: PA_PROFILE_SHA
+          value: ${pingaccessSha}
         ports:
         - containerPort: 9000
         - containerPort: 3000
