@@ -58,9 +58,9 @@ spec:
             name: pingdatagovernance-environment-variables
         image: pingidentity/pingdatagovernance:2012-8.2.0.0
         name: pingdatagovernance
-        # env:
-        # - name: PDG_PROFILE_SHA
-        #   value: ${pingdatagovernanceSha}
+        env:
+        - name: PDG_PROFILE_SHA
+          value: ${pingdatagovernanceSha}
         ports:
         - containerPort: 80
         - containerPort: 443
