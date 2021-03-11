@@ -68,35 +68,35 @@ is not recommended as it may interfere with expected server behavior.
                                             </div>
                     <div id="verificationData" class="stack stack--large" data-id="stack" style="font-family:Rubik">
                         <div class="stack stack--small">
-                            <h1 class="heading" data-id="heading">
+                            <h1 class="heading" data-id="heading" style="font-family:Rubik">
                                 $languagePackMessages.getMessage($messageKeyPrefix, "header")
                             </h1>
-                            <h4 id="requiredDescription" class="heading heading--4 text-block" data-id="heading">
+                            <h4 id="requiredDescription" class="heading heading--4 text-block" data-id="heading" style="font-family:Rubik">
                                 $languagePackMessages.getMessage($messageKeyPrefix, "description", $appName)
                             </h4>
-                            <h4 id="errorDescription" class="heading heading--4 text-block" data-id="heading" style="display: none;">
+                            <h4 id="errorDescription" class="heading heading--4 text-block" data-id="heading" style="display: none;" style="font-family:Rubik">
                                 $languagePackMessages.getMessage($messageKeyPrefix, "error.description")
                             </h4>
                         </div>
-                        <div id="errorBlock" class="feedback feedback--error" style="display: none; justify-content: center" data-id="feedback"><span
+                        <div id="errorBlock" class="feedback feedback--error" style="display: none; justify-content: center" data-id="feedback" style="font-family:Rubik"><span
                                 class="feedback__icon pingicon-error-triangle"></span>
-                            <div id="errorMessage" style="width: auto" class="feedback__message">$errorMessage</div>
+                            <div id="errorMessage" style="width: auto" class="feedback__message" style="font-family:Rubik">$errorMessage</div>
                         </div>
                         <div class="text-block">
                             <img id="qrCode" height="150px" width="150px" src="$qrCode" alt="QR Code" />
                         </div>
                         <div class="text-block stack stack--small" data-id="textblock">
                             <div class="text-block stack stack--xsmall">
-                                <div class="heading heading--4 text-block" data-id="heading">Verification code:</div>
-                                <div id="verificationCode" class="heading" data-id="heading">
+                                <div class="heading heading--4 text-block" data-id="heading" style="font-family:Rubik">Verification code:</div>
+                                <div id="verificationCode" class="heading" data-id="heading" style="font-family:Rubik">
                                     $verificationCode
                                 </div>
                             </div>
-                            <button class="button button--tertiary" data-id="button" type="button" onclick="copy()">
+                            <button class="button button--tertiary" data-id="button" type="button" onclick="copy()" style="font-family:Rubik">
                                 $languagePackMessages.getMessage($messageKeyPrefix, "copy.button.title")
                             </button>
                         </div>
-                        <div class="text-block">
+                        <div class="text-block" style="font-family:Rubik">
                             <a tabindex="0" data-id="content-link" target="_self" class="anchor"
                                onclick="cancelAuthentication()">$languagePackMessages.getMessage($messageKeyPrefix, "cancel.button.title")</a>
                         </div>
@@ -105,7 +105,7 @@ is not recommended as it may interfere with expected server behavior.
                         <div class="spinner spinner--margin-bottom-small">
                             <div class="spinner__icon" data-id="spinner"></div>
                         </div>
-                        <h1 class="heading" data-id="heading">
+                        <h1 class="heading" data-id="heading" style="font-family:Rubik">
                             $languagePackMessages.getMessage($messageKeyPrefix, "in.progress")
                         </h1>
                     </div>
