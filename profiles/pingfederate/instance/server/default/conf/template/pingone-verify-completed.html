@@ -22,6 +22,14 @@ is not recommended as it may interfere with expected server behavior.
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,
     user-scalable=no"/>
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+
+     <!-- adding for BXFinance styling -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <link rel="stylesheet" href="assets/css/styles.css">
+     <link rel="stylesheet" href="assets/css/login.css">
+     <!-- END OF -->
+
+
     <link rel="stylesheet" href="assets/css/end-user/0.32.0/end-user.css">
     <link rel="stylesheet" type="text/css" href="assets/css/pingone-verify.css"/>
     <style>
@@ -42,29 +50,30 @@ is not recommended as it may interfere with expected server behavior.
 </head>
 
 <body>
-<div class="app-container">
+<div lass="card card-register" style="margin:auto; width:100%; font-family:Rubik">
     <div class="page brand-background" data-id="page">
         <div class="page__content">
             <div class="card card--no-padding">
                 <div class="card__content">
-                    <div class="org-logo"><img class="org-logo__image"
+                    <div class="org-logo">
+                        <!-- <img class="org-logo__image"
                                                src="assets/images/ping-logo.svg"
-                                               alt="Company Logo"/></div>
+                                               alt="Company Logo"/> -->
+                         <!-- adding for BXFinance styling -->
+                            <img src="assets/images/logo.svg" class="logo" />
+                        <!-- END OF-->
+                                            
+                                            </div>
                     <div class="icon-feedback icon-feedback--timeout  icon-feedback--success"><span
                             class="icon-feedback__icon pingicon-ghost-success"></span>
                         <p class="icon-feedback__label">
-                        <p class="icon-feedback--success">$languagePackMessages.getMessage($messageKeyPrefix, "header")</p>
+                        <p class="icon-feedback--success" style="font-family:Rubik">$languagePackMessages.getMessage($messageKeyPrefix, "header")</p>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="page__footer">
-            <div class="ping-footer">
-                <div class="ping-credits"></div>
-                <div class="ping-copyright">$templateMessages.getMessage("global.footerMessage")</div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
