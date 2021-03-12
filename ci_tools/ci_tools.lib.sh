@@ -7,13 +7,16 @@ test -f ./ci_tools/@localSecrets && . ./ci_tools/@localSecrets
 
 case "${REF}" in
   master ) 
-    RELEASE=${RELEASE:=Prod}
+
+    REACT_APP_ENV_NAME=${Prod}
     FQDN="demo.bxfinance.org"
+    ## used for prefixing
     ENV=""
     ;;
   * )
-    RELEASE="$(echo "$REF" | awk ' { $0=toupper(substr($0,1,1))substr($0,2); print } ')"
+    REACT_APP_ENV_NAME="$(echo "$REF" | awk ' { $0=toupper(substr($0,1,1))substr($0,2); print } ')"
     FQDN="bxfinance-${REF}.ping-devops.com"
+    ## used for prefixing
     ENV="-${REF}"
     ;;
 esac
