@@ -57,7 +57,7 @@ and any other locale specific properties files, the localized value can be added
     <link rel="stylesheet" type="text/css" href="$Encode.forHtmlAttribute($reservedApplicationContextRoot)/assets/css/main.css"/>
 </head>
 
-<body>
+<body class="card card-register" style="margin:auto; width:50%; font-family:Rubik">
     
 <div class="ping-container">
     
@@ -72,13 +72,11 @@ and any other locale specific properties files, the localized value can be added
         </span>
         <img src="$Encode.forHtmlAttribute($reservedApplicationContextRoot)/assets/images/logo.svg" class="logo" />
         
-        <!-- #if($title)
-          $Encode.forHtml($title) 
-        #end -->
+        
         
     </div><!-- .ping-header -->
     
-    <div class="class="card card-register" style="margin:auto; width:50%; font-family:Rubik"">
+    <div class="card-body">
 
         <div class="section-title">
             #if(${header})
