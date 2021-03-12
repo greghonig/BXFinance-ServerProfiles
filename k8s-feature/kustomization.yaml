@@ -13,12 +13,6 @@ resources:
 generatorOptions:
   disableNameSuffixHash: true
 
-configMapGenerator:
-- name: global-env-vars
-  behavior: replace
-  envs:
-    - shared-vars
-
 images:
 - name: gcr.io/ping-gte/bxfinanceapp
   newName: gcr.io/ping-gte/bxfinanceapp-dev
