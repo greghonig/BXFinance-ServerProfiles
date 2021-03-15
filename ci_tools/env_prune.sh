@@ -19,4 +19,4 @@ k8sFolder="k8s${ENV:+-feature}"
 kustomize build "${k8sFolder}" | envsubst
 kustomize build "${k8sFolder}" | envsubst | kubectl delete -n "${K8S_NAMESPACE}" -f -
 
-kubectl delete pvc --selector=app.kubernetes.io/instance="${RELEASE}"
+kubectl delete pvc --selector=refs="${REF}"
