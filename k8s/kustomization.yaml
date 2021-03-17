@@ -15,6 +15,6 @@ generatorOptions:
   disableNameSuffixHash: true
 
 configMapGenerator:
-- name: shared-vars
+- name: global-env-vars
   envs:
     - shared-vars

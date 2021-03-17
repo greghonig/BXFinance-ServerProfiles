@@ -33,6 +33,9 @@ spec:
       containers:
       - image: gcr.io/ping-gte/bxfinanceapp
         name: bxfinanceapp
+        envFrom:
+        - configMapRef:
+            name: global-env-vars
         ports:
         - containerPort: 5000
         resources:
