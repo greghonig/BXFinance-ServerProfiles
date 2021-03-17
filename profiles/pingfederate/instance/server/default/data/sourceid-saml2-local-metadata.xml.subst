@@ -36,6 +36,8 @@
             </sid:LocalPathsDescriptor>
             <sid:ApplicationURLs/>
             <sid:UrlToAdapterMap Url="https://${PD_DELEGATOR_PUBLIC_HOSTNAME}/app/*" TargetType="ADAPTER" AdapterInstance="AdvisorSPRefID"/>
+            <sid:UrlToAdapterMap Url="https://${PD_DELEGATOR_PUBLIC_HOSTNAME}/app/credit-card" TargetType="ADAPTER" AdapterInstance="BXFSPRefID"/>
+            <sid:UrlToAdapterMap Url="https://${PD_DELEGATOR_PUBLIC_HOSTNAME}/app/banking" TargetType="ADAPTER" AdapterInstance="BXFSPRefID"/>
             <sid:IdpDiscovery CommonDomainServer="false" IdPCommonDomainClient="false" SPCommonDomainClient="false" WriteCookiePath="/writecookie.cdc" ReadCookiePath="/readcookie.cdc">
                 <sid:CommonDomainClient CommonDomainServiceBaseUrl=""/>
                 <sid:CommonDomainService CommonDomain="" CookieLifeDays="365"/>
