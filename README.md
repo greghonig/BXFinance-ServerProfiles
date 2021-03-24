@@ -1,3 +1,7 @@
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Technical-Enablement-PingIdentity/BXFinance-ServerProfiles/DeployEnv/master?label=prod)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Technical-Enablement-PingIdentity/BXFinance-ServerProfiles/DeployEnv/staging?label=staging)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Technical-Enablement-PingIdentity/BXFinance-ServerProfiles/DeployEnv/qa?label=qa)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Technical-Enablement-PingIdentity/BXFinance-ServerProfiles/DeployEnv/integration?label=integration)
 # BXFinance
 ## This server profile is the basis of the BXFinance Demo - Currently the `docker-compose` version. K8s version planned for a later release.
 
