@@ -16,10 +16,13 @@
 apiVersion: v1
 data:
   K8S_STATEFUL_SET_NAME: pingdirectory
-  K8S_STATEFUL_SET_SERVICE_NAME: pingdirectory
+  K8S_STATEFUL_SET_SERVICE_NAME: pingdirectory-cluster
   ORCHESTRATION_TYPE: KUBERNETES
-  SERVER_PROFILE_URL: https://github.com/Technical-Enablement-PingIdentity/BXFinance
-  SERVER_PROFILE_PATH: pingdirectory
+  SERVER_PROFILE_URL: https://github.com/Technical-Enablement-PingIdentity/BXFinance-ServerProfiles
+  SERVER_PROFILE_PATH: profiles/pingdirectory
+  ROOT_USER_PASSWORD_FILE: /opt/staging/pwd
+  ADMIN_USER_PASSWORD_FILE: /opt/staging/pwd
+  ENCRYPTION_PASSWORD_FILE: /opt/staging/pwd
   MAX_HEAP_SIZE: 768m
 kind: ConfigMap
 metadata:
@@ -36,14 +39,13 @@ metadata:
     role: pingdirectory
   name: pingdirectory
 spec:
-  clusterIP: None
   ports:
   - name: ldaps
-    port: 636
-    targetPort: 1636
+    port: 1636
+    targetPort: 636
   - name: ssl
-    port: 443
-    targetPort: 1443
+    port: 1443
+    targetPort: 443
   - name: consent
     port: 2443
     targetPort: 2443
@@ -53,6 +55,24 @@ spec:
   selector:
     role: pingdirectory
 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: pingdirectory
+  name: pingdirectory-cluster
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+spec:
+  publishNotReadyAddresses: true
+  clusterIP: None
+  ports:
+  - name: ldaps
+    port: 636
+  selector:
+    role: pingdirectory
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -65,7 +85,7 @@ spec:
   selector:
     matchLabels:
       role: pingdirectory
-  serviceName: pingdirectory
+  serviceName: pingdirectory-cluster
   template:
     metadata:
       labels:
@@ -75,16 +95,19 @@ spec:
       containers:
       - envFrom:
         - configMapRef:
-            name: shared-vars
-        - secretRef:
-            name: server-profile-url
-            optional: false
+            name: global-env-vars
+        # - secretRef:
+        #     name: server-profile-url
+        #     optional: true
         - secretRef:
             name: devops-secret
             optional: true
         - configMapRef:
             name: pingdirectory-environment-variables
         image: pingidentity/pingdirectory:2012-8.2.0.0
+        env:
+        - name: PD_PROFILE_SHA
+          value: ${pingdirectorySha}
         lifecycle:
           preStop:
             exec:
