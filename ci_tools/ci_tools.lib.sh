@@ -8,7 +8,7 @@ test -f ./ci_tools/@localSecrets && . ./ci_tools/@localSecrets
 case "${REF}" in
   master ) 
 
-    REACT_APP_ENV_NAME=${Prod}
+    REACT_APP_ENV_NAME="Prod"
     ACME_SERVER_ENV_NAME="Let's Encrypt"
     FQDN="demo.bxfinance.org"
     ## used for prefixing
