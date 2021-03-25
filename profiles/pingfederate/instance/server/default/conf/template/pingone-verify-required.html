@@ -96,7 +96,7 @@ is not recommended as it may interfere with expected server behavior.
                                 $languagePackMessages.getMessage($messageKeyPrefix, "copy.button.title")
                             </button>
                         </div>
-                        <div class="text-block" style="font-family:Rubik">
+                        <div class="text-block" style="font-family:Rubik"><!-- changed onclick to self.close to support our new tab/window use case for credit card application -->
                             <a tabindex="0" data-id="content-link" target="_self" class="anchor"
                                onclick="self.close()">$languagePackMessages.getMessage($messageKeyPrefix, "cancel.button.title")</a>
                         </div>
