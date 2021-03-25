@@ -27,13 +27,13 @@ dsconfig create-external-server \
     --set hostname-verification-method:allow-all 
 
 dsconfig create-external-server \
-    --server-name pingdatapap  \
+    --server-name pingdatagovernancepap  \
     --type policy  \
-    --set base-url:https://pingdatapap:9${PD_ENGINE_PUBLIC_PORT}  \
+    --set base-url:https://pingdatagovernancepap:9${PD_ENGINE_PUBLIC_PORT}  \
     --set hostname-verification-method:allow-all  \
     --set key-manager-provider:Null  \
     --set 'trust-manager-provider:Blind Trust'  \
-    --set shared-secret:AACuxS6iOu83HQO3Nu5Ttp3ZnNEW+gfN6JA=  \
+    --set shared-secret:AAClQ6o/9pjyMtVAC8qYRk7GXNjXYCP1jNo=  \
     --set branch:defaultPolicies.snapshot 
 
 dsconfig create-external-server \
@@ -41,8 +41,8 @@ dsconfig create-external-server \
     --type ping-identity-ds  \
     --set server-host-name:pingdirectory  \
     --set location:Docker  \
-    --set bind-dn:cn=dmanager  \
-    --set password:AAD3lAb+Kmjfzp3SikELgXXbyRsT+Xr4gJg= 
+    --set bind-dn:cn=administrator  \
+    --set password:AAAjT08PHJtRTGHIBoo1GnRf0erXhWc3eGo= 
 
 dsconfig create-external-server \
     --server-name pingfederate  \
@@ -77,7 +77,7 @@ dsconfig create-access-token-validator \
     --set enabled:true  \
     --set authorization-server:pingfederate  \
     --set client-id:PingIntrospect  \
-    --set client-secret:AAAqoaWN9qOwvnhIxLnG59lITqimiYr+vgs= 
+    --set client-secret:AADXX7pQhUmIUupY7Y2G/RASdO5Hy4wvZU8= 
 
 dsconfig create-token-resource-lookup-method \
     --validator-name pingfederateATV  \
@@ -116,7 +116,7 @@ dsconfig create-gateway-api-endpoint \
 
 dsconfig set-policy-decision-service-prop \
     --set pdp-mode:external  \
-    --set policy-server:pingdatapap  \
+    --set policy-server:pingdatagovernancepap  \
     --set trust-framework-version:v2  \
     --set decision-response-view:decision-tree  \
     --set decision-response-view:evaluated-entities  \
@@ -134,7 +134,7 @@ dsconfig create-sideband-api-endpoint \
 
 dsconfig create-sideband-api-shared-secret \
     --secret-name my-ss  \
-    --set shared-secret:AABU4JSVChmFlYcs3IfntkHL3wvNb0QZsBA= 
+    --set shared-secret:AAAAxG535vr/Id1WXyDoPJ5zkKKhF6RR8Fo= 
 
 dsconfig set-connection-handler-prop \
     --handler-name 'HTTPS Connection Handler'  \
@@ -160,9 +160,5 @@ dsconfig set-log-publisher-prop \
 dsconfig set-monitor-provider-prop \
     --provider-name 'Host System'  \
     --reset enabled 
-
-dsconfig set-root-dn-user-prop \
-    --user-name 'Directory Manager'  \
-    --add alternate-bind-dn:cn=administrator 
 
 
