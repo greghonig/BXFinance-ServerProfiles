@@ -7,10 +7,10 @@ test -f ./ci_tools/@localSecrets && . ./ci_tools/@localSecrets
 
 case "${REF}" in
   master ) 
-
-    REACT_APP_ENV_NAME="Prod"
+    REACT_APP_ENV_NAME=Prod
     ACME_SERVER_ENV_NAME="Let's Encrypt"
     FQDN="demo.bxfinance.org"
+    PING_IDENTITY_DEVOPS_DNS_ZONE="demo.bxfinance.org"
     ## used for prefixing
     ENV=""
     ;;
@@ -21,14 +21,12 @@ case "${REF}" in
     REACT_APP_ENV_NAME="$(echo "$REF" | awk ' { $0=toupper(substr($0,1,1))substr($0,2); print } ')"
     ACME_SERVER_ENV_NAME="Let's Encrypt Staging Environment"
     FQDN="bxfinance-${REF}.ping-devops.com"
-    ## used for prefixing
     ENV="-${REF}"
+    PING_IDENTITY_DEVOPS_DNS_ZONE="bxfinance${ENV}.ping-devops.com"
+    ## used for prefixing
     ;;
 esac
-
 K8S_NAMESPACE="bxfinance${ENV}" 
-PING_IDENTITY_DEVOPS_DNS_ZONE="bxfinance${ENV}.ping-devops.com"
-
 
 kubectl config set-context --current --namespace="${K8S_NAMESPACE}"
 
