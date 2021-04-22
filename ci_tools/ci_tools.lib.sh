@@ -15,7 +15,7 @@ case "${REF}" in
     ENV=""
     ;;
   * )
-    if test "${REF}" != "qa" || test "${REF}" != "staging" ; then
+    if test "${REF}" != "qa" && test "${REF}" = "${REF##release}" ; then
       REACT_IMAGE_SUFFIX="-dev"
     fi
     REACT_APP_ENV_NAME="$(echo "$REF" | awk ' { $0=toupper(substr($0,1,1))substr($0,2); print } ')"
@@ -54,24 +54,24 @@ createGlobalVarsPostman() {
     varEntries="${varEntries} { \"key\": \"${key}\", \"value\": \"${value}\" },"
   done
   varEntries=${varEntries%?}
-  cat << EOF | kubectl apply -f -
-  apiVersion: v1
-  data:
-    global_postman_vars.json: |
-      {
-        "id": "eae83fc1-25de-4def-9062-7dc2ba993710",
-        "name": "myping",
-        "values": [
-          ${varEntries}
-        ],
-        "_postman_variable_scope": "global"
-      }
-  kind: ConfigMap
-  metadata:
-    annotations:
-      use-subpath: "true"
-    name: global-env-vars-postman
-    namespace: ${K8S_NAMESPACE}
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+data:
+  global_postman_vars.json: |
+    {
+      "id": "eae83fc1-25de-4def-9062-7dc2ba993710",
+      "name": "myping",
+      "values": [
+        ${varEntries}
+      ],
+      "_postman_variable_scope": "global"
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    use-subpath: "true"
+  name: global-env-vars-postman
+  namespace: ${K8S_NAMESPACE}
 EOF
 }
 
