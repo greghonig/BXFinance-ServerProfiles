@@ -36,4 +36,4 @@ rm -f /opt/out/instance/server/default/lib/pf-authn-api-sdk-1.0.0.35.jar
 rm -f /opt/out/instance/server/default/lib/pf-authn-api-sdk-1.0.0.54.jar
 
 rm -f /opt/out/instance/server/default/deploy/pf-pingone-mfa-adapter-1.3.2.jar
-
+rm -f /opt/out/instance/server/default/deploy/pf-pingone-quickconnection-2.1.jar
