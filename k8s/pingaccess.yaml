@@ -19,7 +19,7 @@ spec:
   - name: pa-admin
     port: 9000
   - name: pa-app
-    port: 1443 
+    port: 443 
     targetPort: 3000
   - name: pa-insecure
     port: 8080
@@ -56,7 +56,7 @@ spec:
             optional: true
         - configMapRef:
             name: pingaccess-environment-variables
-        image: pingidentity/pingaccess:2106-latest
+        image: pingidentity/pingaccess:2012-6.2.0
         name: pingaccess
         env:
         - name: PA_PROFILE_SHA
@@ -127,6 +127,6 @@ spec:
         path: /.well-known/acme-challenge
       - backend:
           serviceName: pingaccess
-          servicePort: 1443
+          servicePort: 443
         path: /
       
