@@ -3,6 +3,7 @@ data:
   SERVER_PROFILE_PATH: profiles/pingaccess
   PING_IDENTITY_PASSWORD: "2FederateM0re"
 kind: ConfigMap
+#add
 metadata:
   labels:
     role: pingaccess
