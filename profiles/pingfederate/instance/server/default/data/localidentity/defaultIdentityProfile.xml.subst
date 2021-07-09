@@ -103,8 +103,13 @@
             <loc:options>$300,000 - $500,000</loc:options>
             <loc:options>More than $500,000</loc:options>
         </loc:field>
+        <loc:field type="HIDDEN" default-value="" id="mailVerified" label="mailVerified">
+            <loc:appliesTo profile="false" registration="true"/>
+            <loc:parameter param-name="Unique ID Field" value="false"/>
+            <loc:parameter param-name="Mask Log Values" value="false"/>
+        </loc:field>
     </loc:fields>
-    <loc:email-verification-config emailVerificationEnabled="false" verifyEmailTemplateName="message-template-email-ownership-verification.html" emailVerificationSentTemplateName="local.identity.email.verification.sent.html" emailVerificationSuccessTemplateName="local.identity.email.verification.success.html" emailVerificationErrorTemplateName="local.identity.email.verification.error.html" otlTimeToLive="1440" verificationEmailField="" verificationStatusField="" notificationPublisherId=""/>
+    <loc:email-verification-config emailVerificationEnabled="true" verifyEmailTemplateName="message-template-email-ownership-verification.html" emailVerificationSentTemplateName="local.identity.email.verification.sent.html" emailVerificationSuccessTemplateName="local.identity.email.verification.success.html" emailVerificationErrorTemplateName="local.identity.email.verification.error.html" otlTimeToLive="1440" verificationEmailField="email" verificationStatusField="mailVerified" notificationPublisherId="" requireVerifiedEmail="true" requireVerifiedEmailTemplateName="local.identity.email.verification.required.html"/>
     <loc:registration-config captchaEnabled="false" templateName="local.identity.registration.html" thisIsMyDevice="false" createAuthnSessionAfterRegistration="true" usernameField=""/>
     <loc:profile-config templateName="local.identity.profile.html" deleteIdentityEnabled="false"/>
     <loc:datastore-mapping>
@@ -125,6 +130,7 @@
         <loc:Attribute fieldName="phoneNumber" datastore-field="mobile"/>
         <loc:Attribute fieldName="street" datastore-field="street"/>
         <loc:Attribute fieldName="bxFinanceUserAccountNumber" datastore-field="bxFinanceUserAccountNumber"/>
+        <loc:Attribute fieldName="mailVerified" datastore-field="mailVerified"/>
         <loc:Attribute fieldName="email" datastore-field="mail"/>
         <loc:Attribute fieldName="householdIncome" datastore-field="bxFinanceUserHouseholdIncome"/>
         <loc:Attribute fieldName="username" datastore-field="uid"/>

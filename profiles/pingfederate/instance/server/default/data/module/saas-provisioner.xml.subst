@@ -2,10 +2,7 @@
   <saasProvisionerEntity>
     <entityId>PingOneConnector</entityId>
     <target id="PingOne">
-      <parameter name="REGION" value="North America"/>
-      <parameter name="ENVIRONMENT_ID" value="17161047-290f-4c88-b771-01adc4e81564"/>
-      <parameter name="CLIENT_ID" value="86e4c911-042e-42fa-9e29-1e98b2014e01"/>
-      <parameter name="CLIENT_SECRET" value="OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiRmQ3WmhZNWo0ayIsInZlcnNpb24iOiIxMC4wLjMuMCJ9..P3N6RUebjwrI6k8kFMfbsA.6FaCfXO6CqqFiwoi6K6D82nJsPiyD6cmPNIGmQGANEkC-dRdohnDWeay5IB5-_uzzt2yMQJ7mElhrsm-dCs7koURwtYemrkiYpBUxxtaDf4.zAONkecCI1QyGxEm-aBtLw"/>
+      <parameter name="PINGONE_ENVIRONMENT" value=""/>
       <parameter name="Provisioning Options" value=""/>
       <parameter name="CREATE_USERS_PROV_OPT" value="true"/>
       <parameter name="UPDATE_USERS_PROV_OPT" value="true"/>
