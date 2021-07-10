@@ -109,7 +109,7 @@
             <loc:parameter param-name="Mask Log Values" value="false"/>
         </loc:field>
     </loc:fields>
-    <loc:email-verification-config emailVerificationEnabled="true" verifyEmailTemplateName="message-template-email-ownership-verification.html" emailVerificationSentTemplateName="local.identity.email.verification.sent.html" emailVerificationSuccessTemplateName="local.identity.email.verification.success.html" emailVerificationErrorTemplateName="local.identity.email.verification.error.html" otlTimeToLive="1440" verificationEmailField="email" verificationStatusField="mailVerified" notificationPublisherId="" requireVerifiedEmail="true" requireVerifiedEmailTemplateName="local.identity.email.verification.required.html"/>
+    <loc:email-verification-config emailVerificationEnabled="false" verifyEmailTemplateName="message-template-email-ownership-verification.html" emailVerificationSentTemplateName="local.identity.email.verification.sent.html" emailVerificationSuccessTemplateName="local.identity.email.verification.success.html" emailVerificationErrorTemplateName="local.identity.email.verification.error.html" otlTimeToLive="1440" verificationEmailField="" verificationStatusField="" notificationPublisherId="" requireVerifiedEmail="false" requireVerifiedEmailTemplateName="local.identity.email.verification.required.html"/>
     <loc:registration-config captchaEnabled="false" templateName="local.identity.registration.html" thisIsMyDevice="false" createAuthnSessionAfterRegistration="true" usernameField=""/>
     <loc:profile-config templateName="local.identity.profile.html" deleteIdentityEnabled="false"/>
     <loc:datastore-mapping>

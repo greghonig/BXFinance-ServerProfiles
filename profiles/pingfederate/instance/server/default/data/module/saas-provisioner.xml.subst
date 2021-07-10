@@ -2,7 +2,7 @@
   <saasProvisionerEntity>
     <entityId>PingOneConnector</entityId>
     <target id="PingOne">
-      <parameter name="PINGONE_ENVIRONMENT" value=""/>
+      <parameter name="PINGONE_ENVIRONMENT" value="4dq7B5Reksx31i1zw41DKt|17161047-290f-4c88-b771-01adc4e81564"/>
       <parameter name="Provisioning Options" value=""/>
       <parameter name="CREATE_USERS_PROV_OPT" value="true"/>
       <parameter name="UPDATE_USERS_PROV_OPT" value="true"/>
