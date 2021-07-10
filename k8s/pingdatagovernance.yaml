@@ -20,10 +20,10 @@ spec:
   ports:
   - name: https
     port: 3443
-    targetPort: 443
+    targetPort: 1443
   - name: ldaps
-    port: 636
-    targetPort: 636
+    port: 1636
+    targetPort: 1636
   selector:
     role: pingdatagovernance
 ---
@@ -56,15 +56,15 @@ spec:
             optional: true
         - configMapRef:
             name: pingdatagovernance-environment-variables
-        image: pingidentity/pingdatagovernance:2012-8.2.0.0
+        image: pingidentity/pingauthorize:2106-8.3.0.0
         name: pingdatagovernance
         env:
         - name: PDG_PROFILE_SHA
           value: ${pingdatagovernanceSha}
         ports:
         - containerPort: 80
-        - containerPort: 443
-        - containerPort: 636
+        - containerPort: 1443
+        - containerPort: 1636
         resources:
           limits:
             cpu: "2"
