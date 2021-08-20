@@ -17,7 +17,7 @@
       <source dataSourceId="LDAP-PingDirectory">
         <ldapGuidFormatter guidAttributeName="entryUUID" guidIsBinary="false"/>
         <usersBaseDN>ou=People,${USER_BASE_DN}</usersBaseDN>
-        <filter>(&amp;(mobile=*)(objectClass=bxFinanceUser))</filter>
+        <filter>(&amp;(|(mail=*)(mobile=*))(objectClass=bxFinanceUser))</filter>
         <memberOfGroupAttributeName/>
         <groupMemberAttributeName>uniqueMember</groupMemberAttributeName>
         <changedUsersAlgorithm>Timestamp No Negation</changedUsersAlgorithm>
